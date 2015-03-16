@@ -9,6 +9,11 @@ margin:0;
 	display: none;
 }
 
+#chooseStaffText{
+	display: block;
+	text-align: center;
+}
+
 /* bars */
 .blackBar{
 	border: 0;
@@ -55,8 +60,8 @@ margin:0;
 .treble{
 	position: absolute;
 	display: block;
-	top: 5vh;
-	width: 50vh;
+	top: 10vh;
+	width: 40vh;
 	height: auto;
 	left: 10%;
 }
@@ -64,8 +69,8 @@ margin:0;
 .bass{
 	position: absolute;
 	display: block;
-	top: 5vh;
-	width: 50vh;
+	top: 10vh;
+	width: 40vh;
 	height: auto;
 	right: 10%;
 }

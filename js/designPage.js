@@ -15,6 +15,9 @@ function trebleOrBass(symbol){
 		document.getElementById("symbolTreble").style.display = "none";
 		document.getElementById("musicSheet").style.display = "block";
 	}
+	document.getElementById("chooseStaffText").style.display = "none";
+	document.getElementById("bassText").style.display = "none";
+	document.getElementById("trebleText").style.display = "none";
 }
 
 //opens the note drawer when a line is pressed
@@ -40,7 +43,7 @@ function noteToSheet(noteName){
 	image.setAttribute("src", "" + noteName + "");
 	image.style.position = "absolute";
 	image.style.width = "5vh";
-	image.style.left = "" + (15 * numOfNotes) + "vw";
+	image.style.left = "" + (17 * numOfNotes) + "vw";
 	image.style.top = "" + (9.75*notePosition) + "vh";
 	
 	if(noteDrawerShow == true){
