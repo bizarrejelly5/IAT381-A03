@@ -4,6 +4,11 @@ padding:0;
 margin:0; 
 }
 
+/* entire music sheet div */
+#musicSheet{
+	display: none;
+}
+
 /* bars */
 .blackBar{
 	border: 0;
@@ -43,16 +48,28 @@ margin:0;
 	bottom: 0;
 	background-color: #B2DFDB;
 	opacity: 0.8;
-	z-index: 100; //have this thing in the front at all times
+	z-index: 100; /* have this thing in the front at all times */
 }
 
 /* music notes */
-.clef{
+.treble{
 	position: absolute;
+	display: block;
 	top: 5vh;
 	width: 50vh;
 	height: auto;
+	left: 10%;
 }
+
+.bass{
+	position: absolute;
+	display: block;
+	top: 5vh;
+	width: 50vh;
+	height: auto;
+	right: 10%;
+}
+
 
 .quarter_note{
 	position: absolute;

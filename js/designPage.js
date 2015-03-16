@@ -3,6 +3,20 @@ var numOfNotes = 1;
 var notePosition = 0;
 var noteDrawerShow = false; //determines if the drawer is closed or open
 
+//user determines if they are using treble or bass
+function trebleOrBass(symbol){
+	if(symbol == "treble"){
+		document.getElementById("symbolTreble").style.left = "0%";
+		document.getElementById("symbolBass").style.display = "none";
+		document.getElementById("musicSheet").style.display = "block";
+	}
+	else if(symbol == "bass"){
+		document.getElementById("symbolBass").style.left = "5%";
+		document.getElementById("symbolTreble").style.display = "none";
+		document.getElementById("musicSheet").style.display = "block";
+	}
+}
+
 //opens the note drawer when a line is pressed
 function openNotes(x){
 	if(noteDrawerShow == true){

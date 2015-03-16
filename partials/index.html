@@ -1,5 +1,5 @@
 <body>
-	<div>
+	<div id="musicSheet">
 		<!-- The music sheets. Lines can be pressed and opens up "notes" drawer-->
 		<!-- Numers in the functions are used for position of the notes -->
 		<div class="tealBar"></div>
@@ -15,8 +15,8 @@
 		<!-- end Music Sheet -->
 	</div>
 	<!-- Clef note positioned at the front of the music sheet -->
-	<!-- <img class="clef" src="img/clef.png"></img> -->
-	<img class="clef" src="img/clef.png"></img>
+	<a href=""  onClick="trebleOrBass('treble')"><img id="symbolTreble" class="treble" src="img/treble.png"></img></a>
+	<a href=""  onClick="trebleOrBass('bass')"><img id="symbolBass" class="bass" src="img/bass.png"></img></a>
 	
 	<div id="showDrawer" class="noteDrawer">
 		 <input class="quarter_note" type="image" src="img/quarter_note.png" onclick="noteToSheet('img/quarter_note.png')"></input>
