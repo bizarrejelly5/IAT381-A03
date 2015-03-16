@@ -1,0 +1,76 @@
+/* remove borders around screen */
+body { 
+padding:0; 
+margin:0; 
+}
+
+/* bars */
+.blackBar{
+	border: 0;
+	width: 100vw;
+	height: 2vh;
+	background-color: gray;
+}
+
+.blackBar:active{
+	background-color: red;
+}
+
+.whiteBar{
+	border: 0;
+	padding-top: 5vh;
+	padding-bottom: 5vh;
+	width: 100vw;
+	background-color: white;
+}
+
+.whiteBar:active{
+	background-color: green;
+}
+
+.tealBar{
+	padding-top: 5vh;
+	padding-bottom: 5vh;
+	width: 100vw;
+	background-color: #009688;
+}
+
+.noteDrawer{
+	position: absolute;
+	display: none;
+	width: 100vw;
+	height: 25vh;
+	bottom: 0;
+	background-color: #B2DFDB;
+	opacity: 0.8;
+	z-index: 100; //have this thing in the front at all times
+}
+
+/* music notes */
+.clef{
+	position: absolute;
+	top: 5vh;
+	width: 50vh;
+	height: auto;
+}
+
+.quarter_note{
+	position: absolute;
+	bottom: 5vh;
+	width: 5vh;
+	left: 10vw;
+}
+
+.half_note{
+	position: absolute;
+	bottom: 5vh;
+	width: 5vh;
+	left: 20vw;
+}
+
+.whole_note{
+	position: absolute;
+	bottom: 10vh;
+	width: 5vh;
+	left: 30vw;
+}

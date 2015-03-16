@@ -1,0 +1,28 @@
+<body>
+	<div>
+		<!-- The music sheets. Lines can be pressed and opens up "notes" drawer-->
+		<!-- Numers in the functions are used for position of the notes -->
+		<div class="tealBar"></div>
+		<input type="button" class="blackBar" onclick="openNotes(0)"></input>
+		<input type="button" class="whiteBar" onclick="openNotes(1)"></input>
+		<input type="button" class="blackBar" onclick="openNotes(2)"></input>
+		<input type="button" class="whiteBar" onclick="openNotes(3)"></input>
+		<input type="button" class="blackBar" onclick="openNotes(4)"></input>
+		<input type="button" class="whiteBar" onclick="openNotes(5)"></input>
+		<input type="button" class="blackBar" onclick="openNotes(6)"></input>
+		<input type="button" class="whiteBar" onclick="openNotes(7)"></input>
+		<input type="button" class="blackBar" onclick="openNotes(8)"></input>
+		<!-- end Music Sheet -->
+	</div>
+	<!-- Clef note positioned at the front of the music sheet -->
+	<!-- <img class="clef" src="img/clef.png"></img> -->
+	<img class="clef" src="img/clef.png"></img>
+	
+	<div id="showDrawer" class="noteDrawer">
+		 <input class="quarter_note" type="image" src="img/quarter_note.png" onclick="noteToSheet('img/quarter_note.png')"></input>
+		 <input class="half_note" type="image" src="img/half_note.png" onclick="noteToSheet('img/half_note.png')"></input>
+		 <input class="whole_note" type="image" src="img/whole_note.png" onclick="noteToSheet('img/whole_note.png')"></input>
+	</div>
+	
+	
+</body>
