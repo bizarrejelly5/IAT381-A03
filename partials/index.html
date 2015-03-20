@@ -12,13 +12,22 @@
 		<input type="button" class="blackBar" onclick="openNotes(6)"></input>
 		<input type="button" class="whiteBar" onclick="openNotes(7)"></input>
 		<input type="button" class="blackBar" onclick="openNotes(8)"></input>
+		<div class="tealBar"></div>
+		
+		<!-- notes and breaks -->
+		<a href="" type="button" onclick=""><img class="notes" src="img/note.png"></img></a>
+		<a href="" type="button" onclick=""><img class="rest" src="img/rest.png"></img></a>
+		
+		<!-- add and delete button -->
+		<input type="button" class="delete" onclick="deletePressed()">Delete</input>
+		<input type="button" class="add" onclick="deletePressed()">Add</input>
 		<!-- end Music Sheet -->
 	</div>
 	
 	<!-- Clef note positioned at the front of the music sheet -->
 	<h1 id="chooseStaffText">Choose your staff</h1>
-	<h1 id="bassText" style="bottom:0; left:15%; position:absolute; display:block">Bass</h1>
-	<h1 id="trebleText" style="bottom:0; right:15%; position:absolute; display:block">Treble</h1>
+	<h1 id="bassText" style="top:50%; left:15%; position:absolute; display:block">Bass</h1>
+	<h1 id="trebleText" style="top:50%; right:15%; position:absolute; display:block">Treble</h1>
 	<a href="" onClick="trebleOrBass('treble')"><img id="symbolTreble" class="treble" src="img/treble.png"></img></a>
 	<a href="" onClick="trebleOrBass('bass')"><img id="symbolBass" class="bass" src="img/bass.png"></img></a>
 	

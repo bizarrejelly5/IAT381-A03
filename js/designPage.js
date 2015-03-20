@@ -1,17 +1,45 @@
 //the number of notes on each page
 var numOfNotes = 1;
 var notePosition = 0;
+var noteArray = [];
 var noteDrawerShow = false; //determines if the drawer is closed or open
+var deleteTrue = false;
 
+var image; //the notes
+
+function playSounds(){
+	var synth = new Tone.MonoSynth();
+	 synth.toMaster();
+	 
+	 var playNotePosition = 0;
+	 
+	 //create a callback which is invoked every quarter note
+	 Tone.Transport.setInterval(function(time){
+		 //trigger middle C for the duration of an 8th note
+		 
+		  synth.triggerAttackRelease(noteArray[playNotePosition], "16n", time);
+		  playNotePosition++;
+		  console.log(playNotePosition);
+		  if(playNotePosition > noteArray.length-1){
+			playNotePosition = 0;
+		  }
+	  }, "4n");
+	 
+	// //start the transport
+	 Tone.Transport.start();
+ }
+ 
 //user determines if they are using treble or bass
 function trebleOrBass(symbol){
 	if(symbol == "treble"){
 		document.getElementById("symbolTreble").style.left = "0%";
+		document.getElementById("symbolTreble").style.top = "25%";
 		document.getElementById("symbolBass").style.display = "none";
 		document.getElementById("musicSheet").style.display = "block";
 	}
 	else if(symbol == "bass"){
-		document.getElementById("symbolBass").style.left = "5%";
+		document.getElementById("symbolBass").style.left = "0%";
+		document.getElementById("symbolBass").style.top = "25%";
 		document.getElementById("symbolTreble").style.display = "none";
 		document.getElementById("musicSheet").style.display = "block";
 	}
@@ -39,12 +67,21 @@ function openNotes(x){
 //adds note to the sheet and sets its position
 function noteToSheet(noteName){
 	numOfNotes++;
-	var image = document.createElement("IMG");
+	// var image = document.createElement("IMG");
+	// image.setAttribute("src", "" + noteName + "");
+	
+	image = document.createElement("input");
 	image.setAttribute("src", "" + noteName + "");
+	image.setAttribute("type", "image");
+	image.setAttribute("id", "note" + numOfNotes + "");
+	image.setAttribute("onclick", "deleteNote(" + numOfNotes + ")");
 	image.style.position = "absolute";
-	image.style.width = "5vh";
+	image.style.height = "10vh";
 	image.style.left = "" + (17 * numOfNotes) + "vw";
-	image.style.top = "" + (9.75*notePosition) + "vh";
+	image.style.top = "" + (18 + 4.5 * notePosition) + "%";
+	
+	noteArray.push("C" + notePosition + "");
+	console.log(noteArray);
 	
 	if(noteDrawerShow == true){
 		document.body.appendChild(image);
@@ -53,5 +90,21 @@ function noteToSheet(noteName){
 	}
 	else if(noteDrawerShow == false){
 		image.style.display = "none";
+	}
+}
+
+function deletePressed(){
+	deleteTrue = true;
+	console.log("delete pressed");
+	// playSounds();
+}
+
+function deleteNote(x){
+	console.log(x);
+	if(deleteTrue == true){
+		var note = document.getElementById("note" + x + "");
+		document.body.removeChild(note);
+		noteArray[x-2] = null;
+		console.log(noteArray);
 	}
 }
