@@ -1,11 +1,24 @@
 //the number of notes on each page
 var numOfNotes = 1;
+var barWidth = 0; //the width of the colour bars in accordance to the number of notes on sheet
 var notePosition = 0;
 var noteArray = [];
 var noteDrawerShow = false; //determines if the drawer is closed or open
 var deleteTrue = false;
 
 var image; //the notes
+
+//shakeJS
+function loadShake(){
+	var myShakeEvent = new Shake({
+		threshold: 15
+	});
+	myShakeEvent.start();
+	window.addEventListener('shake', shakeEventDidOccur, false);
+	function shakeEventDidOccur(){
+		alert('Shake!');
+	}
+}
 
 function playSounds(){
 	var synth = new Tone.MonoSynth();
@@ -35,7 +48,7 @@ function trebleOrBass(symbol){
 		document.getElementById("symbolTreble").style.left = "0%";
 		document.getElementById("symbolTreble").style.top = "25%";
 		document.getElementById("symbolBass").style.display = "none";
-		document.getElementById("musicSheet").style.display = "block";
+		document.getElementById("musicSheet").style.display = "inline";
 	}
 	else if(symbol == "bass"){
 		document.getElementById("symbolBass").style.left = "0%";
@@ -55,7 +68,8 @@ function openNotes(x){
 		document.getElementById("showDrawer").style.display = "none";
 		noteDrawerShow = false;
 	}
-	else if(numOfNotes < 5 && noteDrawerShow == false){ //currently only allow up to 4 notes
+	// else if(numOfNotes < 5 && noteDrawerShow == false){ //currently only allow up to 4 notes
+	else if(noteDrawerShow == false){ //currently only allow up to 4 notes
 		//show the note drawer
 		document.getElementById("showDrawer").style.display = "block";
 		noteDrawerShow = true;
@@ -91,12 +105,30 @@ function noteToSheet(noteName){
 	else if(noteDrawerShow == false){
 		image.style.display = "none";
 	}
+	
+	if((numOfNotes - 1) % 3 == 0){
+		var w = document.getElementsByClassName("noteDrawer");
+		var x = document.getElementsByClassName("blackBar");
+		var y = document.getElementsByClassName("whiteBar");
+		var z = document.getElementsByClassName("tealBar");
+		barWidth++;
+		w[0].style.width = "" + (100 + barWidth * 50) + "%";
+		for(var i = 0; i < 5; i++){
+			x[i].style.width = "" + (100 + barWidth * 50) + "%";
+		}
+		for(var j = 0; j < 4; j++){
+			y[j].style.width = "" + (100 + barWidth * 50) + "%";
+		}
+		for(var k = 0; k < 2; k++){
+			z[k].style.width = "" + (100 + barWidth * 50) + "%";
+		}
+	}
 }
 
 function deletePressed(){
 	deleteTrue = true;
 	console.log("delete pressed");
-	// playSounds();
+	
 }
 
 function deleteNote(x){
@@ -108,3 +140,9 @@ function deleteNote(x){
 		console.log(noteArray);
 	}
 }
+
+function addPressed(){
+	playSounds();
+}
+
+loadShake();

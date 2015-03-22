@@ -12,15 +12,17 @@
 		<input type="button" class="blackBar" onclick="openNotes(6)"></input>
 		<input type="button" class="whiteBar" onclick="openNotes(7)"></input>
 		<input type="button" class="blackBar" onclick="openNotes(8)"></input>
-		<div class="tealBar"></div>
+			<div class="notesBackground"></div>
+			<div class="restBackground"></div>
 		
 		<!-- notes and breaks -->
 		<a href="" type="button" onclick=""><img class="notes" src="img/note.png"></img></a>
 		<a href="" type="button" onclick=""><img class="rest" src="img/rest.png"></img></a>
 		
 		<!-- add and delete button -->
-		<input type="button" class="delete" onclick="deletePressed()">Delete</input>
-		<input type="button" class="add" onclick="deletePressed()">Add</input>
+		<input type="button" class="delete" onclick="deletePressed()">delete</input>
+		<input type="button" class="add" onclick="addPressed()">add</input>
+
 		<!-- end Music Sheet -->
 	</div>
 	
@@ -31,6 +33,7 @@
 	<a href="" onClick="trebleOrBass('treble')"><img id="symbolTreble" class="treble" src="img/treble.png"></img></a>
 	<a href="" onClick="trebleOrBass('bass')"><img id="symbolBass" class="bass" src="img/bass.png"></img></a>
 	
+	<!-- app drawer, will delete once hammerjs works -->
 	<div id="showDrawer" class="noteDrawer">
 		 <input class="quarter_note" type="image" src="img/quarter_note.png" onclick="noteToSheet('img/quarter_note.png')"></input>
 		 <input class="half_note" type="image" src="img/half_note.png" onclick="noteToSheet('img/half_note.png')"></input>
