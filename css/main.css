@@ -115,7 +115,6 @@ a{
 
 .notesBackground{
 	display: inline-block;
-	right: 0;
 	border: 0;
 	padding-top: 45%;
 	width: 49%;
@@ -134,7 +133,6 @@ a{
 
 .restBackground{
 	display: inline-block;
-	left: 0;
 	border: 0;
 	padding-top: 45%;
 	width: 49%;
