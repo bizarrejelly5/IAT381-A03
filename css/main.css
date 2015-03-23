@@ -114,8 +114,7 @@ a{
 }
 
 .notesBackground{
-	/* display: inline-block; */
-	position: fixed;
+	display: inline-block;
 	right: 0;
 	border: 0;
 	padding-top: 45%;
@@ -134,8 +133,7 @@ a{
 }
 
 .restBackground{
-	/* display: inline-block; */
-	position: fixed;
+	display: inline-block;
 	left: 0;
 	border: 0;
 	padding-top: 45%;
