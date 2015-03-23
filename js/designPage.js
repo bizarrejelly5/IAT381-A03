@@ -128,7 +128,6 @@ function noteToSheet(noteName){
 function deletePressed(){
 	deleteTrue = true;
 	console.log("delete pressed");
-	
 }
 
 function deleteNote(x){
