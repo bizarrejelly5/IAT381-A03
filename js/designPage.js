@@ -143,6 +143,7 @@ function deleteNote(x){
 
 function addPressed(){
 	playSounds();
+	console.log('ada');
 }
 
 loadShake();
