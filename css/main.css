@@ -167,3 +167,9 @@ a{
 	z-index: -1;
 }
 
+#swipe{
+	background: silver;
+  	height: 300px;
+ 	 text-align: center;
+}
+

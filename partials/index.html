@@ -3,15 +3,15 @@
 		<!-- The music sheets. Lines can be pressed and opens up "notes" drawer-->
 		<!-- Numers in the functions are used for position of the notes -->
 		<div class="tealBar"></div>
-		<input type="button" class="blackBar" onclick="openNotes(0)"></input>
-		<input type="button" class="whiteBar" onclick="openNotes(1)"></input>
-		<input type="button" class="blackBar" onclick="openNotes(2)"></input>
-		<input type="button" class="whiteBar" onclick="openNotes(3)"></input>
-		<input type="button" class="blackBar" onclick="openNotes(4)"></input>
-		<input type="button" class="whiteBar" onclick="openNotes(5)"></input>
-		<input type="button" class="blackBar" onclick="openNotes(6)"></input>
-		<input type="button" class="whiteBar" onclick="openNotes(7)"></input>
-		<input type="button" class="blackBar" onclick="openNotes(8)"></input>
+		<input id="line0" type="button" class="blackBar" onmousedown="mouseDown(); openNotes(0)" onmouseup="mouseUp()"></input>
+		<input type="button" class="whiteBar" onmousedown="mouseDown(); openNotes(1)" onmouseup="mouseUp()"></input>
+		<input type="button" class="blackBar" onmousedown="mouseDown(); openNotes(2)" onmouseup="mouseUp()"></input>
+		<input type="button" class="whiteBar" onmousedown="mouseDown(); openNotes(3)" onmouseup="mouseUp()"></input>
+		<input type="button" class="blackBar" onmousedown="mouseDown(); openNotes(4)" onmouseup="mouseUp()"></input>
+		<input type="button" class="whiteBar" onmousedown="mouseDown(); openNotes(5)" onmouseup="mouseUp()"></input>
+		<input type="button" class="blackBar" onmousedown="mouseDown(); openNotes(6)" onmouseup="mouseUp()"></input>
+		<input type="button" class="whiteBar" onmousedown="mouseDown(); openNotes(7)" onmouseup="mouseUp()"></input>
+		<input type="button" class="blackBar" onmousedown="mouseDown(); openNotes(8)" onmouseup="mouseUp()"></input>
 		<div class="notesBackground"></div>
 		<div class="restBackground"></div> 
 		<div class="tealBar"></div> 
@@ -23,6 +23,7 @@
 		<!-- add and delete button -->
 		<input type="button" class="delete" onclick="deletePressed()"></input>
 		<input type="button" class="add" onclick="addPressed()">add</input>
+		 
 
 		<!-- end Music Sheet -->
 	</div>
@@ -35,11 +36,10 @@
 	<a href="" onClick="trebleOrBass('bass')"><img id="symbolBass" class="bass" src="img/bass.png"></img></a>
 	
 	<!-- app drawer, will delete once hammerjs works -->
-	<div id="showDrawer" class="noteDrawer">
+<!-- 	<div id="showDrawer" class="noteDrawer">
 		 <input class="quarter_note" type="image" src="img/quarter_note.png" onclick="noteToSheet('img/quarter_note.png')"></input>
 		 <input class="half_note" type="image" src="img/half_note.png" onclick="noteToSheet('img/half_note.png')"></input>
 		 <input class="whole_note" type="image" src="img/whole_note.png" onclick="noteToSheet('img/whole_note.png')"></input>
-	</div>
-	
+	</div> -->
 	
 </body>

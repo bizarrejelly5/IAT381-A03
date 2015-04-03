@@ -63,18 +63,19 @@ function trebleOrBass(symbol){
 
 //opens the note drawer when a line is pressed
 function openNotes(x){
-	if(noteDrawerShow == true){
-		//hide the drawer when clicked outside the drawer
-		document.getElementById("showDrawer").style.display = "none";
-		noteDrawerShow = false;
-	}
-	// else if(numOfNotes < 5 && noteDrawerShow == false){ //currently only allow up to 4 notes
-	else if(noteDrawerShow == false){ //currently only allow up to 4 notes
-		//show the note drawer
-		document.getElementById("showDrawer").style.display = "block";
-		noteDrawerShow = true;
-		notePosition = x;
-	}
+	// if(noteDrawerShow == true){
+	// 	//hide the drawer when clicked outside the drawer
+	// 	document.getElementById("showDrawer").style.display = "none";
+	// 	noteDrawerShow = false;
+	// }
+	// // else if(numOfNotes < 5 && noteDrawerShow == false){ //currently only allow up to 4 notes
+	// else if(noteDrawerShow == false){ //currently only allow up to 4 notes
+	// 	//show the note drawer
+	// 	document.getElementById("showDrawer").style.display = "block";
+	// 	noteDrawerShow = true;
+		
+	// }
+	notePosition = x;
 }
 
 
@@ -83,9 +84,9 @@ function noteToSheet(noteName){
 	numOfNotes++;
 	// var image = document.createElement("IMG");
 	// image.setAttribute("src", "" + noteName + "");
-	
+	console.log(notePosition);
 	image = document.createElement("input");
-	image.setAttribute("src", "" + noteName + "");
+	image.setAttribute("src", noteName);
 	image.setAttribute("type", "image");
 	image.setAttribute("id", "note" + numOfNotes + "");
 	image.setAttribute("onclick", "deleteNote(" + numOfNotes + ")");
@@ -94,25 +95,30 @@ function noteToSheet(noteName){
 	image.style.left = "" + (17 * numOfNotes) + "vw";
 	image.style.top = "" + (18 + 4.5 * notePosition) + "%";
 	
-	noteArray.push("C" + notePosition + "");
+	//use if statements to determine the actual note
+	if(notePosition == 0){noteArray.push("C" + notePosition + "");}
+	if(notePosition == 1){noteArray.push("B" + notePosition + "");}
+
+	document.body.appendChild(image);
 	console.log(noteArray);
 	
-	if(noteDrawerShow == true){
-		document.body.appendChild(image);
-		//closes the note drawer if the note is clicked
-		openNotes(-1);
-	}
-	else if(noteDrawerShow == false){
-		image.style.display = "none";
-	}
+	// if(noteDrawerShow == true){
+	// 	document.body.appendChild(image);
+	// 	//closes the note drawer if the note is clicked
+	// 	openNotes(-1);
+	// }
+	// else if(noteDrawerShow == false){
+	// 	image.style.display = "none";
+	// }
 	
+	//make more room for the notes so you can scroll right
 	if((numOfNotes - 1) % 3 == 0){
-		var w = document.getElementsByClassName("noteDrawer");
+		// var w = document.getElementsByClassName("noteDrawer");
 		var x = document.getElementsByClassName("blackBar");
 		var y = document.getElementsByClassName("whiteBar");
 		var z = document.getElementsByClassName("tealBar");
 		barWidth++;
-		w[0].style.width = "" + (100 + barWidth * 50) + "%";
+		// w[0].style.width = "" + (100 + barWidth * 50) + "%";
 		for(var i = 0; i < 5; i++){
 			x[i].style.width = "" + (100 + barWidth * 50) + "%";
 		}
@@ -142,4 +148,39 @@ function deleteNote(x){
 
 function addPressed(){
 	playSounds();
+	console.log("asdasd");
+}
+
+var timer = 0;
+var startTimer = false;
+
+function mouseDown(){
+	document.getElementById("myP").style.color = "red";
+	startTimer = true;
+	console.log("sadas");
+}
+
+// hold for time
+var holdStart = 0;
+var holdTime = 0;
+function mouseDown() {
+    document.getElementById("line0").style.color = "red";
+    holdStart = Date.now();
+}
+
+function mouseUp() {
+	holdTime = Date.now() - holdStart;
+	console.log(holdTime);
+	//checks which note will show
+	if(holdTime <= 250){
+		noteToSheet('img/quarter_note.png');
+	}
+	if(holdTime <= 500 && holdTime >= 250){
+		noteToSheet('img/half_note.png');
+	}
+	if(holdTime <= 1000 && holdTime >= 500){
+		noteToSheet('img/whole_note.png');
+	}
+	//reset the hold time on release
+	holdTime = 0;
 }
