@@ -12,7 +12,7 @@ var image; //the notes
 //shakeJS
 window.onload = function() {
 	var myShakeEvent = new Shake({
-		threshold: 15
+		threshold: 10
 	});
 	myShakeEvent.start();
 	window.addEventListener('shake', shakeEventDidOccur, false);
