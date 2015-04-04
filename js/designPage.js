@@ -43,6 +43,8 @@ function playSounds(){
 		  if(playNotePosition > noteArray.length-1){
 			playNotePosition = 0;
 		  }
+		  // var note = document.getElementById("note" + (playNotePosition + 2) + "");
+		  // note.img.src = "../img/8t.png";
 	  }, "1");
 	 
 	// //start the transport
@@ -172,19 +174,16 @@ function addPressed(){
 	console.log("asdasd");
 }
 
-var timer = 0;
-var startTimer = false;
-
-function mouseDown(){
-	document.getElementById("myP").style.color = "red";
-	startTimer = true;
-	console.log("sadas");
-}
-
 // hold for time
 var holdStart = 0;
 var holdTime = 0;
 function mouseDown() {
+    document.getElementById("line0").style.color = "red";
+    holdStart = Date.now();
+}
+
+
+function touchStart() {
     document.getElementById("line0").style.color = "red";
     holdStart = Date.now();
 }
@@ -208,5 +207,26 @@ function mouseUp() {
 	//reset the hold time on release
 	holdTime = 0;
 }
+
+function touchEnd() {
+	holdTime = Date.now() - holdStart;
+	console.log(holdTime);
+	//checks which note will show
+	if(holdTime <= 250){
+		noteToSheet('img/4n.png');
+		noteLength.push("4n");
+	}
+	if(holdTime <= 500 && holdTime >= 250){
+		noteToSheet('img/2n.png');
+		noteLength.push("2n");
+	}
+	if(holdTime <= 1000 && holdTime >= 500){
+		noteToSheet('img/1n.png');
+		noteLength.push("1n");
+	}
+	//reset the hold time on release
+	holdTime = 0;
+}
+
 
 trebleOrBass();
