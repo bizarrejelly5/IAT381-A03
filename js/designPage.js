@@ -19,7 +19,7 @@ window.onload = function() {
 	function shakeEventDidOccur(){
 		var note = document.getElementById("note" + (noteArray.length + 1) + "");
 		document.body.removeChild(note);
-		noteArray[noteArray.length-1] = null;
+		noteArray.pop();
 		console.log(noteArray);
 	}
 }
