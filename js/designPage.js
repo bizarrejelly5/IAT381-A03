@@ -17,15 +17,12 @@ window.onload = function() {
 	myShakeEvent.start();
 	window.addEventListener('shake', shakeEventDidOccur, false);
 	function shakeEventDidOccur(){
-		for(var i = 2; i < noteArray.length; i++){
-			var note = document.getElementById("note" + i + "");
-			document.body.removeChild(note);
-			noteArray[i-2] = null;
-			console.log(noteArray);
-		}
+		var note = document.getElementById("note" + noteArray.length + "");
+		document.body.removeChild(note);
+		noteArray[noteArray.length-1] = null;
+		console.log(noteArray);
 	}
 }
-
 
 
 function playSounds(){
@@ -82,6 +79,7 @@ function openNotes(x){
 		
 	// }
 	notePosition = x;
+	console.log("noteArray: " + noteArray.length);
 }
 
 
