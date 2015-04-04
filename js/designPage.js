@@ -20,7 +20,9 @@ window.onload = function() {
 		var note = document.getElementById("note" + (noteArray.length + 1) + "");
 		document.body.removeChild(note);
 		noteArray.pop();
-		console.log(noteArray);
+		console.log("asdasd" + noteArray.length);
+		numOfNotes--;
+		notePosition--;
 	}
 }
 
@@ -145,8 +147,14 @@ function noteToSheet(noteName){
 }
 
 function deletePressed(){
-	deleteTrue = true;
-	console.log("delete pressed");
+	// deleteTrue = true;
+	// console.log("delete pressed");
+	var note = document.getElementById("note" + (noteArray.length + 1) + "");
+	document.body.removeChild(note);
+	noteArray.pop();
+	console.log("asdasd" + noteArray.length);
+	numOfNotes--;
+	notePosition--;
 }
 
 function deleteNote(x){
