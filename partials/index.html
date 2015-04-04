@@ -3,7 +3,7 @@
 		<!-- The music sheets. Lines can be pressed and opens up "notes" drawer-->
 		<!-- Numers in the functions are used for position of the notes -->
 		<div class="tealBar"></div>
-		<input id="line0" type="button" class="blackBar" onmousedown="mouseDown(); openNotes(0)" onmouseup="mouseUp()"></input>
+		<input id="line0" type="button" class="blackBar" onmousedown="mouseDown(); openNotes(0)" onmouseup="mouseUp()" touchStart="touchStarts()" touchEnd="touchEnds()" ></input>
 		<input type="button" class="whiteBar" onmousedown="mouseDown(); openNotes(1)" onmouseup="mouseUp()"></input>
 		<input type="button" class="blackBar" onmousedown="mouseDown(); openNotes(2)" onmouseup="mouseUp()"></input>
 		<input type="button" class="whiteBar" onmousedown="mouseDown(); openNotes(3)" onmouseup="mouseUp()"></input>

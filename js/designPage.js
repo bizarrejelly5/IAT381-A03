@@ -183,7 +183,7 @@ function mouseDown() {
 }
 
 
-function touchStart() {
+function touchStarts() {
     document.getElementById("line0").style.color = "red";
     holdStart = Date.now();
 }
@@ -208,7 +208,7 @@ function mouseUp() {
 	holdTime = 0;
 }
 
-function touchEnd() {
+function touchEnds() {
 	holdTime = Date.now() - holdStart;
 	console.log(holdTime);
 	//checks which note will show
