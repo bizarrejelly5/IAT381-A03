@@ -12,7 +12,7 @@ a{
 
 /* entire music sheet div */
 #musicSheet{
-	display: none;
+	display: visible;
 }
 
 #chooseStaffText{
@@ -65,10 +65,10 @@ a{
 .treble{
 	position: absolute;
 	display: block;
-	top: 10vh;
+	top: 25%;
 	width: 20vh;
 	height: auto;
-	left: 10%;
+	left: 0%;
 }
 
 .bass{

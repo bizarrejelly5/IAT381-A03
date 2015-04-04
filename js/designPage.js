@@ -3,6 +3,7 @@ var numOfNotes = 1;
 var barWidth = 0; //the width of the colour bars in accordance to the number of notes on sheet
 var notePosition = 0;
 var noteArray = [];
+var noteLength = [];
 var noteDrawerShow = false; //determines if the drawer is closed or open
 var deleteTrue = false;
 
@@ -16,9 +17,16 @@ window.onload = function() {
 	myShakeEvent.start();
 	window.addEventListener('shake', shakeEventDidOccur, false);
 	function shakeEventDidOccur(){
-		alert('Shake!');
+		for(var i = 2; i < noteArray.length; i++){
+			var note = document.getElementById("note" + i + "");
+			document.body.removeChild(note);
+			noteArray[i-2] = null;
+			console.log(noteArray);
+		}
 	}
 }
+
+
 
 function playSounds(){
 	var synth = new Tone.MonoSynth();
@@ -30,35 +38,33 @@ function playSounds(){
 	 Tone.Transport.setInterval(function(time){
 		 //trigger middle C for the duration of an 8th note
 		 
-		  synth.triggerAttackRelease(noteArray[playNotePosition], "16n", time);
+		  synth.triggerAttackRelease(noteArray[playNotePosition], noteLength[playNotePosition], time);
 		  playNotePosition++;
 		  console.log(playNotePosition);
 		  if(playNotePosition > noteArray.length-1){
 			playNotePosition = 0;
 		  }
-	  }, "4n");
+	  }, "1");
 	 
 	// //start the transport
 	 Tone.Transport.start();
  }
  
 //user determines if they are using treble or bass
-function trebleOrBass(symbol){
-	if(symbol == "treble"){
+function trebleOrBass(){
 		document.getElementById("symbolTreble").style.left = "0%";
 		document.getElementById("symbolTreble").style.top = "25%";
-		document.getElementById("symbolBass").style.display = "none";
+		// document.getElementById("symbolBass").style.display = "none";
 		document.getElementById("musicSheet").style.display = "inline";
-	}
-	else if(symbol == "bass"){
-		document.getElementById("symbolBass").style.left = "0%";
-		document.getElementById("symbolBass").style.top = "25%";
-		document.getElementById("symbolTreble").style.display = "none";
-		document.getElementById("musicSheet").style.display = "block";
-	}
-	document.getElementById("chooseStaffText").style.display = "none";
-	document.getElementById("bassText").style.display = "none";
-	document.getElementById("trebleText").style.display = "none";
+	// else if(symbol == "bass"){
+	// 	document.getElementById("symbolBass").style.left = "0%";
+	// 	document.getElementById("symbolBass").style.top = "25%";
+	// 	document.getElementById("symbolTreble").style.display = "none";
+	// 	document.getElementById("musicSheet").style.display = "block";
+	// }
+	// document.getElementById("chooseStaffText").style.display = "none";
+	// document.getElementById("bassText").style.display = "none";
+	// document.getElementById("trebleText").style.display = "none";
 }
 
 //opens the note drawer when a line is pressed
@@ -96,11 +102,20 @@ function noteToSheet(noteName){
 	image.style.top = "" + (18 + 4.5 * notePosition) + "%";
 	
 	//use if statements to determine the actual note
-	if(notePosition == 0){noteArray.push("C" + notePosition + "");}
-	if(notePosition == 1){noteArray.push("B" + notePosition + "");}
+	if(notePosition == 0){noteArray.push("F" + 2 + "");}
+	if(notePosition == 1){noteArray.push("E" + 2 + "");}
+	if(notePosition == 2){noteArray.push("D" + 2 + "");}
+	if(notePosition == 3){noteArray.push("C" + 1 + "");}
+	if(notePosition == 4){noteArray.push("B" + 1 + "");}
+	if(notePosition == 5){noteArray.push("A" + 1 + "");}
+	if(notePosition == 6){noteArray.push("G" + 1 + "");}
+	if(notePosition == 7){noteArray.push("F" + 1 + "");}
+	if(notePosition == 8){noteArray.push("E" + 1 + "");}
+
 
 	document.body.appendChild(image);
 	console.log(noteArray);
+	console.log(noteLength);
 	
 	// if(noteDrawerShow == true){
 	// 	document.body.appendChild(image);
@@ -173,14 +188,19 @@ function mouseUp() {
 	console.log(holdTime);
 	//checks which note will show
 	if(holdTime <= 250){
-		noteToSheet('img/quarter_note.png');
+		noteToSheet('img/4n.png');
+		noteLength.push("4n");
 	}
 	if(holdTime <= 500 && holdTime >= 250){
-		noteToSheet('img/half_note.png');
+		noteToSheet('img/2n.png');
+		noteLength.push("2n");
 	}
 	if(holdTime <= 1000 && holdTime >= 500){
-		noteToSheet('img/whole_note.png');
+		noteToSheet('img/1n.png');
+		noteLength.push("1n");
 	}
 	//reset the hold time on release
 	holdTime = 0;
 }
+
+trebleOrBass();
