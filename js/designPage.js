@@ -17,7 +17,7 @@ window.onload = function() {
 	myShakeEvent.start();
 	window.addEventListener('shake', shakeEventDidOccur, false);
 	function shakeEventDidOccur(){
-		var note = document.getElementById("note" + noteArray.length + "");
+		var note = document.getElementById("note" + (noteArray.length + 1) + "");
 		document.body.removeChild(note);
 		noteArray[noteArray.length-1] = null;
 		console.log(noteArray);
