@@ -11,6 +11,7 @@ var image; //the notes
 
 //shakeJS
 window.onload = function() {
+	window.scrollTo(0,1);
 	var myShakeEvent = new Shake({
 		threshold: 10
 	});
