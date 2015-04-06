@@ -203,9 +203,29 @@ function mouseUp() {
 }
 
 function handleStart(evt) {
-  evt.preventDefault();
-  console.log("touched");
+	console.log("touched");
+	holdStart = Date.now();
+	console.log(holdStart);
 }
 
+function handleEnd(evt) {
+	holdTime = Date.now() - holdStart;
+	console.log(holdTime);
+	//checks which note will show
+	if(holdTime <= 250){
+		noteToSheet('img/4n.png');
+		noteLength.push("4n");
+	}
+	if(holdTime <= 500 && holdTime >= 250){
+		noteToSheet('img/2n.png');
+		noteLength.push("2n");
+	}
+	if(holdTime <= 1000 && holdTime >= 500){
+		noteToSheet('img/1n.png');
+		noteLength.push("1n");
+	}
+	//reset the hold time on release
+	holdTime = 0;
+}
 
 trebleOrBass();
