@@ -1,9 +1,10 @@
 <body>
 	<div id="musicSheet">
+		<p class="example" onclick="touchStart()">First div element with class="example".</p>
 		<!-- The music sheets. Lines can be pressed and opens up "notes" drawer-->
 		<!-- Numers in the functions are used for position of the notes -->
 		<div class="tealBar"></div>
-		<input id="line0" type="button" class="blackBar" onmousedown="mouseDown(); openNotes(0)" onmouseup="mouseUp()" touchStart="touchStarts()" touchEnd="touchEnds()" ></input>
+		<input type="button" class="blackBar" onmousedown="mouseDown(); openNotes(0)" onmouseup="mouseUp()"></input>
 		<input type="button" class="whiteBar" onmousedown="mouseDown(); openNotes(1)" onmouseup="mouseUp()"></input>
 		<input type="button" class="blackBar" onmousedown="mouseDown(); openNotes(2)" onmouseup="mouseUp()"></input>
 		<input type="button" class="whiteBar" onmousedown="mouseDown(); openNotes(3)" onmouseup="mouseUp()"></input>
@@ -41,5 +42,14 @@
 		 <input class="half_note" type="image" src="img/half_note.png" onclick="noteToSheet('img/half_note.png')"></input>
 		 <input class="whole_note" type="image" src="img/whole_note.png" onclick="noteToSheet('img/whole_note.png')"></input>
 	</div> -->
-	
+	<script type="text/javascript">
+		var x = document.getElementsByClassName("example");
+	    x[0].innerHTML = "Hello World!";
+	    window.scrollTo(0,100);
+
+	    var white = document.getElementsByClassName("whiteBar");
+		var black = document.getElementsByClassName("blackBar");
+		white[0].addEventListener("touchstart", handleStart, false);
+
+    </script>
 </body>

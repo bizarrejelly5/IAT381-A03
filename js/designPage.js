@@ -11,7 +11,10 @@ var image; //the notes
 
 //shakeJS
 window.onload = function() {
-	window.scrollTo(0,100);
+	//touch event for mobile, code snippet taken from mozilla 
+
+
+	
 	var myShakeEvent = new Shake({
 		threshold: 10
 	});
@@ -36,7 +39,6 @@ function playSounds(){
 	 
 	 //create a callback which is invoked every quarter note
 	 Tone.Transport.setInterval(function(time){
-		 //trigger middle C for the duration of an 8th note
 		 
 		  synth.triggerAttackRelease(noteArray[playNotePosition], noteLength[playNotePosition], time);
 		  playNotePosition++;
@@ -46,7 +48,7 @@ function playSounds(){
 		  }
 		  // var note = document.getElementById("note" + (playNotePosition + 2) + "");
 		  // note.img.src = "../img/8t.png";
-	  }, "1");
+	  }, noteLength[playNotePosition]);
 	 
 	// //start the transport
 	 Tone.Transport.start();
@@ -176,15 +178,9 @@ function addPressed(){
 var holdStart = 0;
 var holdTime = 0;
 function mouseDown() {
-    document.getElementById("line0").style.color = "red";
     holdStart = Date.now();
 }
 
-
-function touchStarts() {
-    document.getElementById("line0").style.color = "red";
-    holdStart = Date.now();
-}
 
 function mouseUp() {
 	holdTime = Date.now() - holdStart;
@@ -206,24 +202,23 @@ function mouseUp() {
 	holdTime = 0;
 }
 
-function touchEnds() {
-	holdTime = Date.now() - holdStart;
-	console.log(holdTime);
-	//checks which note will show
-	if(holdTime <= 250){
-		noteToSheet('img/4n.png');
-		noteLength.push("4n");
-	}
-	if(holdTime <= 500 && holdTime >= 250){
-		noteToSheet('img/2n.png');
-		noteLength.push("2n");
-	}
-	if(holdTime <= 1000 && holdTime >= 500){
-		noteToSheet('img/1n.png');
-		noteLength.push("1n");
-	}
-	//reset the hold time on release
-	holdTime = 0;
+function handleStart(evt) {
+  evt.preventDefault();
+  log("touchstart.");
+  var white = document.getElementsByTagName("whiteBar")[0];
+  var ctx = white.getContext("2d");
+  var touches = evt.changedTouches;
+        
+  for (var i=0; i < touches.length; i++) {
+    log("touchstart:"+i+"...");
+    ongoingTouches.push(copyTouch(touches[i]));
+    var color = colorForTouch(touches[i]);
+    ctx.beginPath();
+    ctx.arc(touches[i].pageX, touches[i].pageY, 4, 0,2*Math.PI, false);  // a circle at the start
+    ctx.fillStyle = color;
+    ctx.fill();
+    log("touchstart:"+i+".");
+  }
 }
 
 
