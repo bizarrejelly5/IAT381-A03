@@ -53,10 +53,7 @@ function playSounds(){
  
 //user determines if they are using treble or bass
 function trebleOrBass(){
-		document.getElementById("symbolTreble").style.left = "0%";
-		document.getElementById("symbolTreble").style.top = "25%";
 		// document.getElementById("symbolBass").style.display = "none";
-		document.getElementById("musicSheet").style.display = "inline";
 	// else if(symbol == "bass"){
 	// 	document.getElementById("symbolBass").style.left = "0%";
 	// 	document.getElementById("symbolBass").style.top = "25%";
