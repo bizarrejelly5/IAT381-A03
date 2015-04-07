@@ -9,7 +9,28 @@ var deleteTrue = false;
 var undoTrue = false;
 var notesTrue = true;
 var image; //the notes
+var playbackTrue = false;
 
+// function playBackPage(){
+// 		//make more room for the notes so you can scroll right
+// 	if((numOfNotes - 1) % 3 == 0){
+// 		// var w = document.getElementsByClassName("noteDrawer");
+// 		var x = document.getElementsByClassName("blackBar");
+// 		var y = document.getElementsByClassName("whiteBar");
+// 		var z = document.getElementsByClassName("tealBar");
+// 		barWidth++;
+// 		// w[0].style.width = "" + (100 + barWidth * 50) + "%";
+// 		for(var i = 0; i < 5; i++){
+// 			x[i].style.width = "" + (100 + barWidth * 50) + "%";
+// 		}
+// 		for(var j = 0; j < 4; j++){
+// 			y[j].style.width = "" + (100 + barWidth * 50) + "%";
+// 		}
+// 		for(var k = 0; k < 2; k++){
+// 			z[k].style.width = "" + (100 + barWidth * 50) + "%";
+// 		}
+// 	}
+// }
 
 function undo(){
 	console.log(undoTrue);
@@ -103,6 +124,15 @@ function playSounds(){
 			if(noteLength[playNotePosition] == "1n"){
 				note.src = "./img/1bn.png";
 			}
+			if(noteLength[playNotePosition] == "4r"){
+				note.src = "./img/4br.png";
+			}
+			if(noteLength[playNotePosition] == "2r"){
+				note.src = "./img/2br.png";
+			}
+			if(noteLength[playNotePosition] == "1r"){
+				note.src = "./img/1br.png";
+			}
 			playNotePosition++;
 			console.log(playNotePosition);
 			if(playNotePosition >= noteArray.length){
@@ -120,6 +150,16 @@ function playSounds(){
 					}
 					if(noteLength[i] == "1n"){
 						note.src = "./img/1n.png";
+					}
+					if(noteLength[i] == "4r"){
+						note.src = "./img/4r.png";
+						console.log("fuck");
+					}
+					if(noteLength[i] == "2r"){
+						note.src = "./img/2r.png";
+					}
+					if(noteLength[i] == "1r"){
+						note.src = "./img/1r.png";
 					}
 				}
 				// noteArray.pop();
@@ -299,7 +339,7 @@ function handleEnd(evt) {
 	}
 	if(notesTrue == false){
 		if(holdTime <= 250){
-			noteToSheet('img/8r.png');
+			noteToSheet('img/4r.png');
 			noteLength.push("4r");
 		}
 		if(holdTime <= 500 && holdTime >= 250){

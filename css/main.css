@@ -127,11 +127,10 @@ a{
 .delete{
 	border: 0;
 	position: fixed;
-	bottom: 5%;
+	bottom: 1%;
 	left: 25%;
 	width: 50%;
 	height: 10%;
-	background-color: purple;
 	z-index: -1;
 }
 
@@ -139,11 +138,10 @@ a{
 .add{
 	border: 0;
 	position: fixed;
-	bottom: 5%;
+	bottom: 1%;
 	left: 25%;
 	width: 50%;
 	height: 10%;
-	background-color: yellow;
 	z-index: -1;
 }
 
