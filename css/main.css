@@ -47,7 +47,7 @@ a{
 	border: 0;
 	padding-top: 45%;
 	width: 100%;
-	background-color: #009688;
+	background-color: #FFFFFF;
 }
 
 .noteDrawer{
@@ -102,16 +102,6 @@ a{
 	left: 30vw;
 }
 
-/* notes and breaks */
-.notes{
-	position:fixed;
-	display: block;
-	bottom: 15%;
-	width: 20vh;
-	height: auto;
-	right: 10%;
-	border: solid 1px black;
-}
 
 .notesBackground{
 	display: block;
@@ -121,16 +111,6 @@ a{
 	padding-top: 45%;
 	width: 49%;
 	background-color: #009688;
-}
-
-.rest{
-	position: fixed;
-	display: block;
-	bottom: 20%;
-	width: 20vh;
-	height: auto;
-	left: 10%;
-	border: solid 1px black;
 }
 
 .restBackground{
@@ -147,8 +127,8 @@ a{
 .delete{
 	border: 0;
 	position: fixed;
-	bottom: 0;
-	right: 50%;
+	bottom: 5%;
+	left: 25%;
 	width: 50%;
 	height: 10%;
 	background-color: purple;
@@ -159,8 +139,8 @@ a{
 .add{
 	border: 0;
 	position: fixed;
-	bottom: 0;
-	left: 50%;
+	bottom: 5%;
+	left: 25%;
 	width: 50%;
 	height: 10%;
 	background-color: yellow;
@@ -173,3 +153,54 @@ a{
  	 text-align: center;
 }
 
+.play{
+	position:fixed;
+	display: block;
+	bottom: 20%;
+	width: 10vh;
+	height: auto;
+	left: 10%;
+}
+.pause{
+	position:fixed;
+	display: block;
+	bottom: 20%;
+	width: 10vh;
+	height: auto;
+	left: 42%;
+}
+
+.stop{
+	position:fixed;
+	display: block;
+	bottom: 20%;
+	width: 10vh;
+	height: auto;
+	right: 10%;
+}
+
+.undo{
+	position:fixed;
+	display: block;
+	bottom: 17%;
+	width: 15vh;
+	height: auto;
+	left: 5%;
+}
+.notes{
+	position:fixed;
+	display: block;
+	bottom: 22%;
+	width: 5vh;
+	height: auto;
+	right: 15%;
+}
+
+.rest{
+	position: fixed;
+	display: block;
+	bottom: 22%;
+	width: 8vh;
+	height: auto;
+	left: 45%;
+}

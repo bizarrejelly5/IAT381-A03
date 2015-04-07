@@ -5,6 +5,6 @@ index.config(function($routeProvider){
 	//**Home Page**
 		//index for app
 		when('/', {
-			templateUrl: 'partials/index.html'
+			templateUrl: 'partials/notindex.html'
 		})
 });
