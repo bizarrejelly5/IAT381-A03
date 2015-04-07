@@ -137,7 +137,7 @@ function playSounds(){
 			console.log(playNotePosition);
 			if(playNotePosition >= noteArray.length){
 				playNotePosition = 0;
-
+				
 				//change all the notes back to black
 				for(var i = 0; i <= noteLength.length+1; i++){
 					var note = document.getElementById("note" + (i + 2) + "");
@@ -163,7 +163,7 @@ function playSounds(){
 					}
 				}
 				// noteArray.pop();
-				// Tone.Transport.stop();
+				Tone.Transport.stop();
 			}
 			console.log(playNotePosition);
 		}, noteLength[playNotePosition]);		
