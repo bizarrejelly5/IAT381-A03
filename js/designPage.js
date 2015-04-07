@@ -93,6 +93,7 @@ function playSounds(){
 	Tone.Transport.start();
 	var synth = new Tone.MonoSynth();
 	 synth.toMaster();
+	 synth.volume.value = -15;
 	 	// //start the transport
 	 
  // 	var synth = new Tone.PolySynth(7, Tone.Sampler, {
